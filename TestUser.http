@@ -1,0 +1,12 @@
+POST http://localhost:8000/user/users
+Content-Type: application/json
+
+{
+  "email" : "test2@naver.com"
+  , "pwd" : "test1234"
+  , "name" : "테스xx"
+}
+
+###
+
+GET http://localhost:8000/user/users
