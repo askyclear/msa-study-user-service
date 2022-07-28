@@ -6,14 +6,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authorization.AuthorizationDecision;
+import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFilter;
-import org.springframework.security.web.authentication.www.BasicAuthenticationConverter;
+import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
+import org.springframework.security.web.util.matcher.IpAddressMatcher;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Configuration
 @EnableWebSecurity
@@ -34,18 +38,24 @@ public class WebSecurity {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userService)
                 .passwordEncoder(bCryptPasswordEncoder);
-        
+
         http.headers().frameOptions().disable().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .antMatchers("/users/**")
-                .hasRole("hasIpAddress('127.0.0.1')")
+                .access(hasIpAddress("192.168.219.103"))
                 .and()
                 .authenticationManager(authenticationManagerBuilder.build());
 
         return http.build();
     }
-
+    private static AuthorizationManager<RequestAuthorizationContext> hasIpAddress(String ipAddress) {
+        IpAddressMatcher ipAddressMatcher = new IpAddressMatcher(ipAddress);
+        return (authentication, context) -> {
+            HttpServletRequest request = context.getRequest();
+            return new AuthorizationDecision(ipAddressMatcher.matches(request));
+        };
+    }
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
