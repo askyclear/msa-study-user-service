@@ -38,17 +38,22 @@ public class WebSecurity {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userService)
                 .passwordEncoder(bCryptPasswordEncoder);
+        AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(userService, env);
+        authenticationFilter.setAuthenticationManager(authenticationManager);
 
         http.headers().frameOptions().disable().and()
                 .csrf().disable()
+                .authenticationManager(authenticationManager)
                 .authorizeHttpRequests()
-                .antMatchers("/users/**")
-                .access(hasIpAddress("192.168.219.103"))
+                .antMatchers("/**")
+                .access(hasIpAddress("192.168.219.102"))
                 .and()
-                .authenticationManager(authenticationManagerBuilder.build());
+                .addFilter(authenticationFilter);
 
         return http.build();
     }
+
     private static AuthorizationManager<RequestAuthorizationContext> hasIpAddress(String ipAddress) {
         IpAddressMatcher ipAddressMatcher = new IpAddressMatcher(ipAddress);
         return (authentication, context) -> {
