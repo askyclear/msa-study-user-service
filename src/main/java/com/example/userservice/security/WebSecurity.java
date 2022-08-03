@@ -46,8 +46,8 @@ public class WebSecurity {
                 .csrf().disable()
                 .authenticationManager(authenticationManager)
                 .authorizeHttpRequests()
-                .antMatchers("/**")
-                .access(hasIpAddress("192.168.219.102"))
+                .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/**").access(hasIpAddress("192.168.219.102"))
                 .and()
                 .addFilter(authenticationFilter);
 
