@@ -1,3 +1,15 @@
+POST http://localhost:8000/user/actuator/busrefresh
+
+###
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "email" : "test2@naver.com"
+  , "password" : "test1234"
+}
+
+###
 POST http://localhost:8000/user/users
 Content-Type: application/json
 
@@ -10,3 +22,8 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000/user/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MTkyODQxOC02NjQyLTQxMTQtYWMwYi0xOGQ2ZDkxZmNmMjkiLCJleHAiOjE2NjAyMTE5NzB9.gdIovrdWWJFociGQa9ADKBxUL5qqsBNKu76uoyKyqx93vKKClEvIINb2ZFLc-kNyITkqc1shxdwad0wNN3x2FQ
+
+###
+GET http://localhost:8000/user/users/d5cb01ed-5bdf-478f-8bbf-d4d8c24b454b
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4ODU5NmRiZS1lMTk1LTQ5NmEtOTFkOS05ZDQwY2NlOTEzZDgiLCJleHAiOjE2NjAyMjI2NjZ9.I7qwDy8txemmesbDqdnZXeZ_D7YkuEQ-jfRCDly5vhhj8-LPpb9B65aF34TXRAKEkM20CnEkG1ODGkcUb8yzRA
