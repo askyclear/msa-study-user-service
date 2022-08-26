@@ -1,4 +1,4 @@
-POST http://localhost:8000/user/actuator/busrefresh
+POST http://localhost:8000/actuator/busrefresh
 
 ###
 POST http://localhost:8000/user/login
@@ -22,8 +22,8 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000/user/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MTkyODQxOC02NjQyLTQxMTQtYWMwYi0xOGQ2ZDkxZmNmMjkiLCJleHAiOjE2NjAyMTE5NzB9.gdIovrdWWJFociGQa9ADKBxUL5qqsBNKu76uoyKyqx93vKKClEvIINb2ZFLc-kNyITkqc1shxdwad0wNN3x2FQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYzU3ZTNkNi04NTM1LTRkMDgtOWJkYS1kZmM0OGQ3MmEyN2QiLCJleHAiOjE2NjE2MDU2MjV9.2hcikbAwHXAyeFERFPOiDeQWqtlaZQVGzvYyTYr7NZPC0bd9zuVUUQHYVRsZVuX0fzIRKkK3RYbymBG8V4Cw-A
 
 ###
-GET http://localhost:8000/user/users/d5cb01ed-5bdf-478f-8bbf-d4d8c24b454b
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4ODU5NmRiZS1lMTk1LTQ5NmEtOTFkOS05ZDQwY2NlOTEzZDgiLCJleHAiOjE2NjAyMjI2NjZ9.I7qwDy8txemmesbDqdnZXeZ_D7YkuEQ-jfRCDly5vhhj8-LPpb9B65aF34TXRAKEkM20CnEkG1ODGkcUb8yzRA
+GET http://localhost:8000/user/users/ac57e3d6-8535-4d08-9bda-dfc48d72a27d
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYzU3ZTNkNi04NTM1LTRkMDgtOWJkYS1kZmM0OGQ3MmEyN2QiLCJleHAiOjE2NjE2MDU2NzJ9.HmwgIwF6AoQwEI-O0kV_MXi-sug9lFsnGTqOh9PTltwFyzRiZlDQ72W7v4vMSiWf_lgODmdaEPDUClrFNHrmWg
