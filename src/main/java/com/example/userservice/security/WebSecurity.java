@@ -48,7 +48,7 @@ public class WebSecurity {
                 .authorizeHttpRequests()
                 .antMatchers("/error/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/**").access(hasIpAddress("192.168.219.164"))
+                .antMatchers("/**").access(hasIpAddress("192.168.219.0/24"))
                 .and()
                 .addFilter(authenticationFilter);
 
