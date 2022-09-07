@@ -28,7 +28,7 @@ GET http://localhost:8000/user/health_check
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1MjlmMmEzNy02ODFjLTQ5YzUtYmEwNS1lMmE4NjU3ZjVhMTgiLCJleHAiOjE2NjI1NTI0MjV9.66_btk9ssTA7UVuKmLuX19HA1oZ4sEsXLHFSZcbZcHdlsmu8HtgP6KDM_nO0RhVKpjJIR6EKqL_BS1BmMCrzmQ
 
 ###
-GET http://localhost:8000/user/users/529f2a37-681c-49c5-ba05-e2a8657f5a18
+GET http://localhost:8000/user/users/42279543-18c9-4418-8ee5-b2ceaab02722
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1MjlmMmEzNy02ODFjLTQ5YzUtYmEwNS1lMmE4NjU3ZjVhMTgiLCJleHAiOjE2NjI1NTI0MjV9.66_btk9ssTA7UVuKmLuX19HA1oZ4sEsXLHFSZcbZcHdlsmu8HtgP6KDM_nO0RhVKpjJIR6EKqL_BS1BmMCrzmQ
 
 
